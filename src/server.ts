@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
@@ -29,6 +29,29 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   /**************************************************************************** */
 
+  app.get('/filteredimage', async (req: Request, res: Response) => {
+    const imageUrl = req.query.image_url;
+
+
+    // check imageUrl is valid
+    // if (imageUrl.match(/\.(jpeg|jpg|gif|png)$/) === null) {
+    //     return res.sendStatus(400).send({ message: 'Invalid Image url sent' });
+    // }
+
+    const imgLocation = await filterImageFromURL(imageUrl);
+    const imagePath = imgLocation.split("/");
+    const imageName = imagePath[imagePath.length - 1]
+    
+    res.status(201).download(imgLocation, imageName, (err) => {
+      if (err) {
+        res.status(400).send({Error: "Image url sent was invalid"})
+      } else {
+        deleteLocalFiles([imgLocation]);
+      }
+    })
+    // console.log(imgLocation)
+
+  });
   //! END @TODO1
   
   // Root Endpoint
