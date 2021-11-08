@@ -25,3 +25,10 @@ We've included a few helper functions to handle some of these concepts and we're
 `http://localhost:8082/filteredimage?image_url=path_to_file.png`
 
 #### validation can be seen quickly from local running server. online images take a while to resolve
+
+####
+ENDPOINT -
+`http://imagefilterstartercode-env.eba-h3u3jtfc.us-east-1.elasticbeanstalk.com/`
+
+usage - 
+`http://imagefilterstartercode-env.eba-h3u3jtfc.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://images.unsplash.com/photo-1604085572504-a392ddf0d86a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8b3JhbmdlJTIwZmxvd2VyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80`
