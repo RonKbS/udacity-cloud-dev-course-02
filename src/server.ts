@@ -34,9 +34,9 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
 
     // check imageUrl is valid
-    if (imageUrl.match(/\.(jpeg|jpg|gif|png)$/) === null) {
-        return res.send(400).send({ message: 'Invalid Image url sent' });
-    }
+    // if (imageUrl.match(/\.(jpeg|jpg|gif|png)$/) === null) {
+    //     return res.sendStatus(400).send({ message: 'Invalid Image url sent' });
+    // }
 
     const imgLocation = await filterImageFromURL(imageUrl);
     const imagePath = imgLocation.split("/");
